@@ -231,6 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -315,6 +316,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +517,7 @@ Terrain:
   m_DrawTreesAndFoliage: 1
   m_StaticShadowCaster: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -746,7 +767,7 @@ GameObject:
   - component: {fileID: 7837632424911502470}
   - component: {fileID: 4135283036041797026}
   m_Layer: 0
-  m_Name: Plank
+  m_Name: inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1690,7 +1711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3219585836997125954}
   m_Layer: 0
-  m_Name: waterwheelfbx (1)
+  m_Name: Water Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1836,7 +1857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2874867687616937464}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 39.99, y: 14.1, z: 34.5}
+  m_LocalPosition: {x: 40.48, y: 14.1, z: 37.06}
   m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2647,8 +2668,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5582980711667212861}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 64.63, y: 6.1, z: 43.15}
+  m_LocalRotation: {x: -0, y: 0.6984291, z: -0, w: -0.7156793}
+  m_LocalPosition: {x: 61.376392, y: 6.1000004, z: 41.216633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2695,7 +2716,7 @@ Transform:
   - {fileID: 9069631613948064296}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 271.398, z: 0}
 --- !u!33 &5066178018590269782
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3695,8 +3716,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8354835131739259429}
   m_LocalRotation: {x: 0.00000002185569, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -1.1791054}
-  m_LocalScale: {x: 634.06995, y: 634.06995, z: 634.06995}
+  m_LocalPosition: {x: -0.000000017531, y: 0, z: -1.2638}
+  m_LocalScale: {x: 634.06995, y: 634.06995, z: 679.64374}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3219585836997125954}
@@ -4012,7 +4033,7 @@ GameObject:
   - component: {fileID: 5675330829629131665}
   - component: {fileID: 7865204704043654270}
   m_Layer: 0
-  m_Name: waterwheel
+  m_Name: outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class WaterWheel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float radius = 1.5f;
+    public float waterVelocity = 2f;
 
-    // Update is called once per frame
-    void Update()
+    // Fixed Update is called a fixed amount of times each second (50/sec)
+    void FixedUpdate()
     {
         
     }
