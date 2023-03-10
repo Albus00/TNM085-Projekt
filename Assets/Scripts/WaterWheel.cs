@@ -30,7 +30,7 @@ public class WaterWheel : MonoBehaviour
             angularPos = 0f;
         }
         
-         new Vector3(0, 0, angularPos);
-        Transform.Rotate()
+        Vector3 wheelRot = new Vector3(0, 0, angularPos);
+        //Transform.Rotate();
     } 
 }
