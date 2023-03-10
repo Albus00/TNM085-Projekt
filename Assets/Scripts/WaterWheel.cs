@@ -20,17 +20,16 @@ public class WaterWheel : MonoBehaviour
     // Fixed Update is called a fixed amount of times each second (50/sec)
     void FixedUpdate()
     {
+        float lastPos = angularPos;
 
         simTime += stepSize; // Adds the stepsize each FixedUpdate which corresponds to 50 times per second.
         angularPos += (stepSize/radius) * waterVelocity; 
-    }
 
-    private void Update() {
         if(angularPos >= 2*Mathf.PI) {
             angularPos = 0f;
         }
         
-        Vector3 wheelRot = new Vector3(0, 0, angularPos);
-        //Transform.Rotate();
-    } 
+        Vector3 wheelRot = new Vector3(0, 0, Mathf.Rad2Deg * -(angularPos - lastPos));
+        transform.Rotate(wheelRot, Space.Self);
+    }
 }
