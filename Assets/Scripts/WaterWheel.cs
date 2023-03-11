@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class WaterWheel : MonoBehaviour
 {
+    public GameObject waterBody;
+    private float swellIncrement;
+    private WaterSystem.Water waterScript;
+
     public float radius = 1.5f; // The radius of the wheel (homogeneous cylinder)
     [Range(0.0f, 3.1f)] public float waterVelocity = 2f; // The velocity of the water striking the paddles of the wheel.
     public float startupTime = 50; // The time it takes for starting the wheel up.  
@@ -18,14 +22,30 @@ public class WaterWheel : MonoBehaviour
     [SerializeField] private float angularAcc = 0;
     public float[] angularPosArray;             // Saves previous velocity to check for acceleration
 
+    public GameObject house;
+    private Color emissiveColor;
+    private GameObject[] emissiveObjects;
+
     private void Start() {
         stepSize = Time.fixedDeltaTime; // Stepsize used in Euler approximation in FixedUpdate().
         frictionStep = 1/startupTime;
+
+        swellIncrement = 1f/3.1f;
+        waterScript = waterBody.GetComponent<WaterSystem.Water>();
+        waterScript.surfaceData._basicWaveSettings.amplitude = 0;
+
+        emissiveObjects = house.GetComponent<Glow>().windows;
+        emissiveColor = Color.yellow;
+        Debug.Log(emissiveObjects[0].GetComponent<Renderer>().material);
+        emissiveObjects[0].GetComponent<Renderer>().material.SetColor("_EmissiveColor", emissiveColor * 0);
     }
 
     // Fixed Update is called a fixed amount of times each second (50/sec)
     void FixedUpdate()
     {
+        // Adjust wave height according to water velocity
+        waterScript.surfaceData._basicWaveSettings.amplitude = waterVelocity*swellIncrement;
+
         float lastPos = angularPos;
         float lastVel = angularVel;
 
@@ -57,8 +77,10 @@ public class WaterWheel : MonoBehaviour
             if (angularAcc > 3f)
             {
                 
-            }
+            }            
         }
+
+        // Change window emission
 
         // Move the wheel
         Vector3 wheelRot = new Vector3(0, 0, Mathf.Rad2Deg * -(angularPos - lastPos)); // Converting to degrees because of Unity.
