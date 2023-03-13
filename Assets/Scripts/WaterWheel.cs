@@ -26,8 +26,9 @@ public class WaterWheel : MonoBehaviour
     public float maxWatt = 335;
 
     public Slider velocitySlider;
-    public TextMeshProUGUI wattageText;
-
+    public TextMeshProUGUI EffectText;
+    public TextMeshProUGUI VelocityText;
+    public TextMeshProUGUI velText;
 
     [Range(0.0f, 3.1f)] public float waterVelocity = 2f; // The velocity of the water striking the paddles of the wheel.
     public float startupTime = 50; // The time it takes for starting the wheel up.  
@@ -69,6 +70,7 @@ public class WaterWheel : MonoBehaviour
     {
         // Get velocity from UI slider
         waterVelocity = velocitySlider.value;
+        velText.text = Mathf.Round(waterVelocity * 100f) / 100f + " m/s";
 
         // Converting kinetic energy to rotational energy.
         kineticEnergy = (wheelMass * Mathf.Pow(waterVelocity, 2.0f));
@@ -99,12 +101,13 @@ public class WaterWheel : MonoBehaviour
         else
         {
             simTime += stepSize; // Adds the stepsize each FixedUpdate which corresponds to 50 times per second.
-            angularPos += (stepSize/radius) * waterVelocity * frictionMultiplier;
+            angularPos += -(stepSize/radius) * waterVelocity * frictionMultiplier;
             angularVel = (angularPos - lastPos) / stepSize;
             angularAcc = (angularVel - lastVel) / stepSize;
+            VelocityText.text = -Mathf.Round(angularVel * 100f) / 100f + " m/s";
 
             wattOutput = rotationalEnergy;
-            wattageText.text = Mathf.Round(wattOutput * 100f) / 100f + "W";
+            EffectText.text = Mathf.Round(wattOutput * 100f) / 100f + " Watt";
         }
 
         // Change emission intensity in all the windows, based on the wheel velocity
